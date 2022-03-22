@@ -1,0 +1,21 @@
+[book]
+authors = ["André Claudino"]
+language = "pt-br"
+multilingual = false
+src = "src"
+title = "Aprendizagem por reforço: De jogos à sistemas mais complexos"
+
+[preprocessor]
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
+[output]
+
+[output.html]
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
+
+
+[output.katex]
+
+[preprocessor.katex]

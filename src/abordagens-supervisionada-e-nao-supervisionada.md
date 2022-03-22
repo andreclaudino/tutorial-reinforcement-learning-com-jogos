@@ -1,0 +1,16 @@
+## Abordagens supervisionada e não supervisionada
+
+Em livros, tutoriais na internet, vídeos, e outras mídias, estamos acostumados com a inteligência artificial dividida em algoritmos supervisionados e não-supervisionados, em geral não se fala muito da abordagem de reforço. É mais fácil explicar a abordagem de reforço quando se tem em mente as abordagens supervisionadas e não supervisionadas, então vamos discutí-las rapidamente primeiro.
+
+Algoritmos supervisionados são aqueles que aprendem a partir de exemplos, ou seja, os dados de treinamento conteḿ o que podemos chamar de "resposta correta". Os dados de treinamento e teste/validação de um problema supervisionado sempre consistem num mapeamento entre os dados de entrada e os dados esperados como resultados, sejam eles a *label* de uma classificação[^1] ou um valor numérico número esperado por uma regressão[^2].
+
+Por exemplo:
+> num problema de risco de concessão de crédito, ou de emprestimos, uma base de dados pessoais como idade, profissão, renda, e muito mais, associada ao histórico de pagamento de dívidas bancárias ou financiamentos, ou mesmo o histórico de registros nos serviços de proteção ao crédito, podem ser usados para estimar um grau de afinididade, um *score* (muitas vezes associado à probabilidade) de que um emprestimo não seja pago, ou um problema de regressão pode ser usado para estimar o maior valor possível de uma parcela que essa pessoa terá condições de pagar sem comprometer a renda familiar, prevenindo um endividamento ainda maior.
+
+Um problema não supervisionado não contém a *label*, o que chamamos de "resposta certa" ao problema. Num problema não supervisionado o modelo deve aprender a agrupar os elementos de acordo com características internas, com o que chamamos de *features* (feições)[^3] do dado. Por exemplo:
+> Um e-commerce especializado em produtos da linha gammer como mouses, teclados e monitores quer agrupar seus produtos de uma forma mais intuitiva, não usando apenas a marca e características técnicas. Como produtos gamer são sempre muito coloridos e com muito led, a ideia é usar as imagens e vídeos para criar grupos baseados em cores, tipos de leds, padrões de desenhos (como listras, circulos, cor sólida, etc). Em lugar de apenas agrupar por uma das features, a ideia é criar grupos dinâmicos que representem a identidade do produto dentro de um conjunto, facilitanto por exemplo a recomendação de produtos visualmente similares.
+
+
+[^1]: Um problema de classificação é aquele que deve atribuir uma categoria, ou classe, pré-determinada a um elemento de entrada.
+[^2]: Um problema de regressão é aquele que tenta determinar valores numéricos como saída para um dado de entrada. A [regressão linear](https://pt.wikipedia.org/wiki/Regress%C3%A3o_linear) é um exemplo simples de modelo para um problema de regressão. Problemas de predição de valores para [séries temporais](https://pt.wikipedia.org/wiki/S%C3%A9rie_temporal) são também um exemplo de problema de regressão.
+[^3]: Uma feature, ou feição em Português, é um dos atributos do dado de entrada. Por exemplo, um problema que busca agrupar uma base de clientes de uma rede nacional de lojas de varejo, pode usar features como nome, idade, cidade, renda familiar e histórico de compras, cada um desses valores é uma feature, um atributo do dado de entrada.
