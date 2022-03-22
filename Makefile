@@ -30,8 +30,9 @@ uninstall-mdbook-katex:
 
 uninstall-environment: uninstall-mdbook uninstall-mdbook-mermaid uninstall-mdbook-katex
 
-book: target/install-environment
+docs: target/install-environment
 	mdbook build
+	cp -r book docs/	
 
 dev: target/install-environment
 	mdbook serve --open -p 3000 -n 0.0.0.0
