@@ -1,0 +1,333 @@
+<!DOCTYPE HTML>
+<html lang="pt-br" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Aprendizagem por reforço: De jogos à sistemas mais complexos</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introducao.html"><strong aria-hidden="true">1.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="abordagens-supervisionada-e-nao-supervisionada.html"><strong aria-hidden="true">2.</strong> Abordagens supervisionada e não supervisionada</a></li><li class="chapter-item expanded "><a href="o-que-e-aprendizagem-por-reforco.html"><strong aria-hidden="true">3.</strong> O que é aprendizagem por reforço</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Aprendizagem por reforço: De jogos à sistemas mais complexos</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="introdução"><a class="header" href="#introdução">Introdução</a></h2>
+<h3 id="a-ia-e-os-jogos"><a class="header" href="#a-ia-e-os-jogos">A IA e os jogos</a></h3>
+<p>Já pensou como um jogo, num video-game ou computador, consegue criar oponentes adequados aos diferentes níveis de jogadores? Como um jogo pode ficar mais fácil ou ou mais difícil, de acordo com o &quot;nível&quot; ou &quot;dificuldade&quot; de uma fase, e essa difculdade fazer sentido para quem joga? Os jogos mais antigos não levavam a noção de inteligência ao criar oponentes, então a dificuldade era definida ações mais rápidas, mais inimigos na tela, mais elementos bloqueantes, etc.</p>
+<p>Essa forma de complicar um jogo fica fácil quando vemos o classico Pac Man<sup class="footnote-reference"><a href="#1">1</a></sup>: O cenário não mudava, mas os inimigos, no caso os fantasmas, se tornavam mais rápidos a cada fase.</p>
+<p><img src="https://c.tenor.com/Rf2-km-ODToAAAAC/pac-man-video-game.gif" alt="Animação da arena do Pac-Man" /><br />
+Fonte: <a href="https://tenor.com/view/pac-man-video-game-80s-gif-22223415">tenor</a></p>
+<p>Outro exemplo onde isso fica bem claro é no classico Space Invaders<sup class="footnote-reference"><a href="#2">2</a></sup>. Nas fases mais difíceis, havia um númeor maior de inimigos na tela, eles se aproximavam mais rápido e atacavam com intervalos menores.</p>
+<p><img src="https://community.esri.com/t5/image/serverpage/image-id/4885i467C0BE0C2DA2708/image-size/large/is-moderation-mode/true?v=v2&amp;px=999" alt="Animação de tela do Space Invaders" /><br />
+Fonte: <a href="https://community.esri.com/t5/media/gallerypage/image-id/4885i467C0BE0C2DA2708">ESRI</a></p>
+<p>Nos jogos antigos em geral, aqueles que não levavam a IA em conta ou usavam sistemas de IA não personalizados, as fases eram repetitivas ou aleatórias, muitas vezes era fácil encontrar padrões para vencer o jogo, e isso deixava eles sem graça. Hoje com a inteligência artificial, é mais fácil determinar o que seria um nível de um jogador por meio de agentes de reforço, fazendo com que as fases, níveis e configuraçẽos sejam mais adaptaveis e alcancem as habilidades de jogadores reais em diferentes níveis.</p>
+<p>Um método de IA eficiente para criar adaptabilidade em jogos é a aprendizagem por reforço. Podemos usá-la para replicar o comportamento de um grupo de usuários diante de um determinado cenário. Isso é muito útil em jogos de Corrida ou Luta por exemplo, onde o agente de IA tem a mesma posição do jogador real, permitindo que ele seja formado com o conhecimento de jogadores reais diferentes e ofereça uma concorrencia no nível adequado, sem ser muito difícil ou muito fácil, para um novo jogador real. Hoje, um sistema distribuído de treinamento pode ser usado para treinar oponentes em jogos online.</p>
+<p>Nessa aula, vamos aprender a criar um modelo de machine larning que joga uma versão customizada do classico pong. O jogo pode ser baixado do repositório <a href="https://github.com/andreclaudino/pong-ai-rust">pong-ai-rust</a>, ele não é o foco dessa aula, fica apenas a título de curiosidade, o que nos interessa na verdade é o conteúdo do repositório <a href="https://github.com/andreclaudino/pong-reinforcement-learning">pong-reinforcement-learning</a>, que cria um agente de IA que interage com o jogo implementado no repositório anterior. No momento certo, você terá instruções sobre como baixar e executar o código, vamos estudar detalhes dessa implementação.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Pac-Man é um série de jogos de videogame, feita pela Namco. O objetivo da maioria dos jogos da série é percorrer um labirinto, comendo pontos, pontos energizantes e frutas e fugindo de quatro fantasmas, chamados Blinky, Pinky, Inky e Clyde. Fonte: Wikipedia.</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>Space Invaders é um videogame japonês de tiro lançado em 1978 por Taito. Foi desenvolvido por Tomohiro Nishikado, que foi inspirado por outras mídias: Breakout, A Guerra dos Mundos e Guerra nas Estrelas. Fonte: Wikipedia</p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="abordagens-supervisionada-e-não-supervisionada"><a class="header" href="#abordagens-supervisionada-e-não-supervisionada">Abordagens supervisionada e não supervisionada</a></h2>
+<p>Em livros, tutoriais na internet, vídeos, e outras mídias, estamos acostumados com a inteligência artificial dividida em algoritmos supervisionados e não-supervisionados, em geral não se fala muito da abordagem de reforço. É mais fácil explicar a abordagem de reforço quando se tem em mente as abordagens supervisionadas e não supervisionadas, então vamos discutí-las rapidamente primeiro.</p>
+<p>Algoritmos supervisionados são aqueles que aprendem a partir de exemplos, ou seja, os dados de treinamento conteḿ o que podemos chamar de &quot;resposta correta&quot;. Os dados de treinamento e teste/validação de um problema supervisionado sempre consistem num mapeamento entre os dados de entrada e os dados esperados como resultados, sejam eles a <em>label</em> de uma classificação<sup class="footnote-reference"><a href="#1">1</a></sup> ou um valor numérico número esperado por uma regressão<sup class="footnote-reference"><a href="#2">2</a></sup>.</p>
+<p>Por exemplo:</p>
+<blockquote>
+<p>num problema de risco de concessão de crédito, ou de emprestimos, uma base de dados pessoais como idade, profissão, renda, e muito mais, associada ao histórico de pagamento de dívidas bancárias ou financiamentos, ou mesmo o histórico de registros nos serviços de proteção ao crédito, podem ser usados para estimar um grau de afinididade, um <em>score</em> (muitas vezes associado à probabilidade) de que um emprestimo não seja pago, ou um problema de regressão pode ser usado para estimar o maior valor possível de uma parcela que essa pessoa terá condições de pagar sem comprometer a renda familiar, prevenindo um endividamento ainda maior.</p>
+</blockquote>
+<p>Um problema não supervisionado não contém a <em>label</em>, o que chamamos de &quot;resposta certa&quot; ao problema. Num problema não supervisionado o modelo deve aprender a agrupar os elementos de acordo com características internas, com o que chamamos de <em>features</em> (feições)<sup class="footnote-reference"><a href="#3">3</a></sup> do dado. Por exemplo:</p>
+<blockquote>
+<p>Um e-commerce especializado em produtos da linha gammer como mouses, teclados e monitores quer agrupar seus produtos de uma forma mais intuitiva, não usando apenas a marca e características técnicas. Como produtos gamer são sempre muito coloridos e com muito led, a ideia é usar as imagens e vídeos para criar grupos baseados em cores, tipos de leds, padrões de desenhos (como listras, circulos, cor sólida, etc). Em lugar de apenas agrupar por uma das features, a ideia é criar grupos dinâmicos que representem a identidade do produto dentro de um conjunto, facilitanto por exemplo a recomendação de produtos visualmente similares.</p>
+</blockquote>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Um problema de classificação é aquele que deve atribuir uma categoria, ou classe, pré-determinada a um elemento de entrada.
+<sup class="footnote-reference"><a href="#2">2</a></sup>: Um problema de regressão é aquele que tenta determinar valores numéricos como saída para um dado de entrada. A <a href="https://pt.wikipedia.org/wiki/Regress%C3%A3o_linear">regressão linear</a> é um exemplo simples de modelo para um problema de regressão. Problemas de predição de valores para <a href="https://pt.wikipedia.org/wiki/S%C3%A9rie_temporal">séries temporais</a> são também um exemplo de problema de regressão.
+<sup class="footnote-reference"><a href="#3">3</a></sup>: Uma feature, ou feição em Português, é um dos atributos do dado de entrada. Por exemplo, um problema que busca agrupar uma base de clientes de uma rede nacional de lojas de varejo, pode usar features como nome, idade, cidade, renda familiar e histórico de compras, cada um desses valores é uma feature, um atributo do dado de entrada.</p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="o-que-é-aprendizagem-por-reforço"><a class="header" href="#o-que-é-aprendizagem-por-reforço">O que é aprendizagem por reforço</a></h1>
+<p>Certo, ainda não discutitmos a abordagem por reforço e nem por que ela é importante para os jogos. Na verdade, vamos discutir o que é aprendizagem por reforço e como ela funciona em dois tipos de problemas.</p>
+<ul>
+<li>Replicar o comportamento: Construímos um agente que molda seu comportamento ou criar um comportamento para o modelo se baseando nos diversos comportamentos de um grupo de diversas pessoas. Esse é o caso em que usamos IA para criar o oponente de um jogo.</li>
+<li>Construir um sistema de controle automatizado: nesse caso, o agente de reforço aprende a lidar com um cenário que lhe foi apresentado, por exemplo, um sistema de reforço para fazer ou desfazer investimentos uma carteira de ações.</li>
+</ul>
+<h2 id="o-fluxo"><a class="header" href="#o-fluxo">O fluxo</a></h2>
+<p>De forma bem resumida, o objetivo de problema de reforço é treinar um modelo (também chamado de <em>política</em>), que vai orientar um agente na decisão qual a melhor ação a ser tomada diante de um dado cenário (chamado de <em>observável</em>).</p>
+<p>O fluxo consiste em:</p>
+<ol>
+<li>O <em>agente</em> recebe do <em>ambiente</em> um <em>observável</em>, com informações do seu <em>estado</em> atual. Com o <em>observavel</em> em mãos, o agente constroi a representação<sup class="footnote-reference"><a href="#1">1</a></sup> que deve ser enviadas para a <em>política</em>, que decide qual a melhor <em>ação</em> a ser aplicada no ambiente e a representação equivalente.</li>
+</ol>
+<pre class="mermaid">	graph LR;
+
+		agent[[Agente]]
+		environment[(Ambiente)]
+		policy(Política)
+		
+		environment -- observavel ---&gt; agent
+		agent -- representacao do observavel ---&gt; policy
+</pre>
+<ol start="2">
+<li>A representação da ação enviada pela política é convertida numa ação efetiva pelo agente, ação essa que é aplicada ao ambiente.</li>
+</ol>
+<pre class="mermaid">	graph LR;
+
+		agent[[Agente]]
+		environment[(Ambiente)]
+		policy(Política)
+		
+		policy -- representacao da acao --&gt; agent
+		agent -- ação ---&gt; environment
+</pre>
+<p>A ação aplicada pelo agente, pode alterar o <em>estado</em> do ambiente, gerando um novo observável e mantendo o ciclo.</p>
+<p>Um ponto importante é que o ambiente pode ter uma evolução natural, ou seja, o ambiente pode mudar mesmo se o agente não fizer nada. Isso significa que o <em>observável</em> coletado do ambiente é na verdade função do tempo! Alguns exemplos que podem deixar esse conceito mais claro:</p>
+<ul>
+<li>No jogo space invaders:</li>
+</ul>
+<blockquote>
+<p>Os inimigos se movimentam e atiram contra o jogador. Independentemente de qual ação o jogador tomar (mover para a direita ou esqueda, disparar contra os inimigos, ou não fazer nada) os movimentos continuarão ocorrendo.</p>
+</blockquote>
+<ul>
+<li>Num bot para gerenciar carteiras de investimentos:</li>
+</ul>
+<blockquote>
+<p>O preço das ações continua variando devido a &quot;fatores externos&quot;, como por exemplo, outros investidores. O comportamento dos outros investidores é totalmente ignorado pelo agente, mesmo que não faça nada, o estado do ambiente continua variando.</p>
+</blockquote>
+<ul>
+<li>Num jogo de paciência (cujas regras podem ser vistas <a href="https://pt.wikipedia.org/wiki/Paci%C3%AAncia_(jogo)">nesse link da wikipedia</a></li>
+</ul>
+<blockquote>
+<p>o estado do jogo só muda quando o jogador toma uma ação sobre as cartas, essé um exemplo onde alterações no ambiente dependente apenas do seu estado inical e das ações tomadas pelo agente.</p>
+</blockquote>
+<h2 id="os-componentes"><a class="header" href="#os-componentes">Os componentes</a></h2>
+<p>Algumas palavras estão marcadas, elas representam elementos importantes do universo da aprendizagem por reforço, vamos a elas. Nesses eemplos você teve uma visão conceitual da função dos componentes, agora vamos a algo mais formal: </p>
+<h3 id="política"><a class="header" href="#política">Política:</a></h3>
+<p>A política é o modelo que define as ações a serem tomadas pelo ambiente a partir da representação que recebe do observável. Esse é efetivamente o modelo de IA que foi treinado e está envolvido na história toda.</p>
+<h3 id="agente"><a class="header" href="#agente">Agente</a></h3>
+<p>O agente é aquele que faz a interface entre entre a política e o ambiente, em ambos os sentidos. Agentes diferentes são aplicados a diferentes ambientes de produção que contém um mesmo modelo de política. Um modelo de carro autônomo pode ser treinado num ambiente virtual, onde não existe risco de ferir alguém em caso de acidente e onde pode-se criar várias situações pouco prováveis no mundo real. O modelo treinado pode ser usado num carro autônomo real, nesse caso o agente é diferente: agora, em vez de sinalizar no simulador que o veículo acelerou, feou ou a direção para a qual está se movendo, ele deve enviar sinais elétricos para o sistema de direção do carro, além disso, agora o observavel recebido pelo agente não são mais imagens de um cenário fictício, que roda num simulador, mas imagens de uma camera. Amboso os agentes, no simulador e no mundo real, sabem como traduzir o observável para um formato compreendido pela política, assim, uma placa de pare do simulador, deve gerar o mesmo vetor (representação) que uma placa de pare filmada pela câmera no mundo real.</p>
+<p>Perceba que a política não se importa em como o agente executa as ações definidas e nem como ele obtém a representação do observável, ou seja, para a política o ambiente é uma caixa-preta<sup class="footnote-reference"><a href="#2">2</a></sup>. </p>
+<h3 id="o-ambiente"><a class="header" href="#o-ambiente">O Ambiente</a></h3>
+<p>O ambiente é o elemento que fornece os observáveis para o agente e contém a dinâmica do problema. Pode ser de duas formas:</p>
+<ul>
+<li>Uma forma que sabe as regras que modificam seu estado interno, de forma autônoma e/ou baseado nas ações tomadas pelo agente. Por exemplo, o motor de gameplay para um jogo sabe como modificar o seu estado (posção dos inimigos, pontuação, posição do personagem controlado pelo jogador, vidas restantes e vidas ganhas etc)</li>
+<li>Uma forma que sabe como conseguir os dados do seu estado interno atual. Num problema para gestão de uma carteira de investimentos, o ambiente sabe os valores atuais e parte dos valores passados de todos os ativos daquela carteira (ações por exemplo), mas ele não sabe como alterar os valores, e sim como obtelôs, por exemplo, estando conectado a às APIs da bolsa de valores para obter o valor das ações a cada minuto, e conectado às APIs do banco que sabem fornecem a quantidade de recursos disponíveis para investir após cada ação de investimento.</li>
+</ul>
+<p>Veja que em ambos os casos, o agente não precisa saber como o ambiente consegue o observável e nem como ele processa as ações, do ponto de vista do agente o ambiente é uma caixa-preta.</p>
+<h3 id="estado"><a class="header" href="#estado">Estado</a></h3>
+<p>O estado, ou mais detalhadamente, estado interno do ambiente, é toda e qualquer informação que faça sentido no ambiente para mudar seu observável ou a forma como responde às ações do agente. Num jogo, o estado pode conter, as informações de pontuação de cada jogador, a posição de cada personagem ou item de cenário, os níveis de dado e defesa de cada personagem etc. No sistema de investimento, o estado pode conter os valores atuais das ações, a quantidade de dinheiro nas carteira do cliente, os valors de taxas de compra, etc.</p>
+<h3 id="observável"><a class="header" href="#observável">Observável</a></h3>
+<p>O observavel é a informação que o agente recebe do ambiente. Muitos o confundem com o estado, mas na verdade o observável pode tanto ser o estado completo, como pode consistir de apenas parte das informações contidas nele.</p>
+<ul>
+<li>no caso de um jogo:</li>
+</ul>
+<blockquote>
+<p>não necessariamente o agente precisa conhecer tudo do estado: ele sabe sua posição atual e sua pontuação, mas não precisa necessariamente saber a localização de itens ocultos, que é uma informação do estado, mas só estará disponível como observável quando o jogador chegar na posição do item; o jogador pode saber a posição de um inimigo, mas não necessariamente seus poderes de ataque ou de defesa, ou seja, são informações contidas no ambiente, que fazem parte do estado, mas não são disponibilizadas no observável.</p>
+</blockquote>
+<ul>
+<li>No caso de um agente de investimentos</li>
+</ul>
+<blockquote>
+<p>o agente sabe o valor histórico das ações e seu valor atual, isso consiste no observável. Mas existem outras coisas que afetam o valor das ações como o número de pessoas investindo e o valor que elas investem, isso é totalmente oculto para o agente de investimento, então não faz parte do observável, mas faz parte do estado interno.</p>
+</blockquote>
+<h3 id="ação"><a class="header" href="#ação">Ação</a></h3>
+<p>A ação é, como o nome diz, ação realizada pelo agente. Num jogo existe um conjunto de ações limitadas como mover-se para esquerda ou direita, pular, acelerar, desacelerar, lançar um golpe, etc. As ações possíveis dependem do problema que está sendo tratado. Por exemplo, no caso do agente de investimentos, as ações podem ser</p>
+<ul>
+<li>Aplique o valor $v$</li>
+</ul>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>O termo representação é usado para indicar o formato usado pelo seu sistema de IA para processar os dados. O observável pode ser recebido como um objeto JSON numa API, o agente é responsável por traduzir esse objeto em uma represtação compreendida pelo modelo da política. Isso inclui fazer todas as transformações de feature engineering nessárias e converter o resultado num vetor, que será dado de entrada na política. Da mesma forma, a política retorna uma representação da ação a ser tomada (um vetor por exemplo) que precisa ser convertido na ação efetiva a ser tomada, no caso de um jogo, seria algo como enviar um comando para acelerar ou frear.</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>O termo caixa-preta é usado no mesmo sentido da segregação de responsabilidades de software. Isso quer dizer que a forma como as coisas funcionam internamente no componente A não é importante para o componente B, contanto que a forma como eles interagem seja bem definida.</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://0.0.0.0:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="mermaid.min.js"></script>
+        <script type="text/javascript" src="mermaid-init.js"></script>
+
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>

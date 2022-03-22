@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html lang="pt-br" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Abordagens supervisionada e não supervisionada - Aprendizagem por reforço: De jogos à sistemas mais complexos</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introducao.html"><strong aria-hidden="true">1.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="abordagens-supervisionada-e-nao-supervisionada.html" class="active"><strong aria-hidden="true">2.</strong> Abordagens supervisionada e não supervisionada</a></li><li class="chapter-item expanded "><a href="o-que-e-aprendizagem-por-reforco.html"><strong aria-hidden="true">3.</strong> O que é aprendizagem por reforço</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Aprendizagem por reforço: De jogos à sistemas mais complexos</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="abordagens-supervisionada-e-não-supervisionada"><a class="header" href="#abordagens-supervisionada-e-não-supervisionada">Abordagens supervisionada e não supervisionada</a></h2>
+<p>Em livros, tutoriais na internet, vídeos, e outras mídias, estamos acostumados com a inteligência artificial dividida em algoritmos supervisionados e não-supervisionados, em geral não se fala muito da abordagem de reforço. É mais fácil explicar a abordagem de reforço quando se tem em mente as abordagens supervisionadas e não supervisionadas, então vamos discutí-las rapidamente primeiro.</p>
+<p>Algoritmos supervisionados são aqueles que aprendem a partir de exemplos, ou seja, os dados de treinamento conteḿ o que podemos chamar de &quot;resposta correta&quot;. Os dados de treinamento e teste/validação de um problema supervisionado sempre consistem num mapeamento entre os dados de entrada e os dados esperados como resultados, sejam eles a <em>label</em> de uma classificação<sup class="footnote-reference"><a href="#1">1</a></sup> ou um valor numérico número esperado por uma regressão<sup class="footnote-reference"><a href="#2">2</a></sup>.</p>
+<p>Por exemplo:</p>
+<blockquote>
+<p>num problema de risco de concessão de crédito, ou de emprestimos, uma base de dados pessoais como idade, profissão, renda, e muito mais, associada ao histórico de pagamento de dívidas bancárias ou financiamentos, ou mesmo o histórico de registros nos serviços de proteção ao crédito, podem ser usados para estimar um grau de afinididade, um <em>score</em> (muitas vezes associado à probabilidade) de que um emprestimo não seja pago, ou um problema de regressão pode ser usado para estimar o maior valor possível de uma parcela que essa pessoa terá condições de pagar sem comprometer a renda familiar, prevenindo um endividamento ainda maior.</p>
+</blockquote>
+<p>Um problema não supervisionado não contém a <em>label</em>, o que chamamos de &quot;resposta certa&quot; ao problema. Num problema não supervisionado o modelo deve aprender a agrupar os elementos de acordo com características internas, com o que chamamos de <em>features</em> (feições)<sup class="footnote-reference"><a href="#3">3</a></sup> do dado. Por exemplo:</p>
+<blockquote>
+<p>Um e-commerce especializado em produtos da linha gammer como mouses, teclados e monitores quer agrupar seus produtos de uma forma mais intuitiva, não usando apenas a marca e características técnicas. Como produtos gamer são sempre muito coloridos e com muito led, a ideia é usar as imagens e vídeos para criar grupos baseados em cores, tipos de leds, padrões de desenhos (como listras, circulos, cor sólida, etc). Em lugar de apenas agrupar por uma das features, a ideia é criar grupos dinâmicos que representem a identidade do produto dentro de um conjunto, facilitanto por exemplo a recomendação de produtos visualmente similares.</p>
+</blockquote>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Um problema de classificação é aquele que deve atribuir uma categoria, ou classe, pré-determinada a um elemento de entrada.
+<sup class="footnote-reference"><a href="#2">2</a></sup>: Um problema de regressão é aquele que tenta determinar valores numéricos como saída para um dado de entrada. A <a href="https://pt.wikipedia.org/wiki/Regress%C3%A3o_linear">regressão linear</a> é um exemplo simples de modelo para um problema de regressão. Problemas de predição de valores para <a href="https://pt.wikipedia.org/wiki/S%C3%A9rie_temporal">séries temporais</a> são também um exemplo de problema de regressão.
+<sup class="footnote-reference"><a href="#3">3</a></sup>: Uma feature, ou feição em Português, é um dos atributos do dado de entrada. Por exemplo, um problema que busca agrupar uma base de clientes de uma rede nacional de lojas de varejo, pode usar features como nome, idade, cidade, renda familiar e histórico de compras, cada um desses valores é uma feature, um atributo do dado de entrada.</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="introducao.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="o-que-e-aprendizagem-por-reforco.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="introducao.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="o-que-e-aprendizagem-por-reforco.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://0.0.0.0:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="mermaid.min.js"></script>
+        <script type="text/javascript" src="mermaid-init.js"></script>
+
+
+    </body>
+</html>

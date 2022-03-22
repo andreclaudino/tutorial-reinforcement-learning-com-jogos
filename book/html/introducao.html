@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html lang="pt-br" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Introdução - Aprendizagem por reforço: De jogos à sistemas mais complexos</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introducao.html" class="active"><strong aria-hidden="true">1.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="abordagens-supervisionada-e-nao-supervisionada.html"><strong aria-hidden="true">2.</strong> Abordagens supervisionada e não supervisionada</a></li><li class="chapter-item expanded "><a href="o-que-e-aprendizagem-por-reforco.html"><strong aria-hidden="true">3.</strong> O que é aprendizagem por reforço</a></li><li class="chapter-item expanded "><a href="construingo-as-classes-dos-componentes.html"><strong aria-hidden="true">4.</strong> Construindo as classes dos componentes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="construindo-um-modelo-para-o-jogo-pong.html"><strong aria-hidden="true">4.1.</strong> Construindo o código para jogar Pong</a></li><li class="chapter-item expanded "><a href="construindo-o-codigo-do-ambiente.html"><strong aria-hidden="true">4.2.</strong> Construindo o código do ambiente</a></li><li class="chapter-item expanded "><a href="construindo-o-codigo-do-agente.html"><strong aria-hidden="true">4.3.</strong> Construindo o código do agente</a></li><li class="chapter-item expanded "><a href="construindo-o-codigo-de-uma-politica.html"><strong aria-hidden="true">4.4.</strong> Construindo o código de uma política</a></li></ol></li><li class="chapter-item expanded "><a href="exercicios/exercicios.html"><strong aria-hidden="true">5.</strong> Exercícios</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="exercicios/conceituais.html"><strong aria-hidden="true">5.1.</strong> Conceituais</a></li><li class="chapter-item expanded "><a href="exercicios/codificacao.html"><strong aria-hidden="true">5.2.</strong> Codificação</a></li><li class="chapter-item expanded "><a href="exercicios/respostas-e-resolucoes.html"><strong aria-hidden="true">5.3.</strong> Respostas e resoluções</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Aprendizagem por reforço: De jogos à sistemas mais complexos</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h2 id="introdução"><a class="header" href="#introdução">Introdução</a></h2>
+<h3 id="a-ia-e-os-jogos"><a class="header" href="#a-ia-e-os-jogos">A IA e os jogos</a></h3>
+<p>Já pensou como um jogo, num video-game ou computador, consegue criar oponentes adequados aos diferentes níveis de jogadores? Como um jogo pode ficar mais fácil ou ou mais difícil, de acordo com o &quot;nível&quot; ou &quot;dificuldade&quot; de uma fase, e essa difculdade fazer sentido para quem joga? Os jogos mais antigos não levavam a noção de inteligência ao criar oponentes, então a dificuldade era definida ações mais rápidas, mais inimigos na tela, mais elementos bloqueantes, etc.</p>
+<p>Essa forma de complicar um jogo fica fácil quando vemos o classico Pac Man<sup class="footnote-reference"><a href="#1">1</a></sup>: O cenário não mudava, mas os inimigos, no caso os fantasmas, se tornavam mais rápidos a cada fase.</p>
+<p><img src="https://c.tenor.com/Rf2-km-ODToAAAAC/pac-man-video-game.gif" alt="Animação da arena do Pac-Man" /><br />
+Fonte: <a href="https://tenor.com/view/pac-man-video-game-80s-gif-22223415">tenor</a></p>
+<p>Outro exemplo onde isso fica bem claro é no classico Space Invaders<sup class="footnote-reference"><a href="#2">2</a></sup>. Nas fases mais difíceis, havia um númeor maior de inimigos na tela, eles se aproximavam mais rápido e atacavam com intervalos menores.</p>
+<p><img src="https://community.esri.com/t5/image/serverpage/image-id/4885i467C0BE0C2DA2708/image-size/large/is-moderation-mode/true?v=v2&amp;px=999" alt="Animação de tela do Space Invaders" /><br />
+Fonte: <a href="https://community.esri.com/t5/media/gallerypage/image-id/4885i467C0BE0C2DA2708">ESRI</a></p>
+<p>Nos jogos antigos em geral, aqueles que não levavam a IA em conta ou usavam sistemas de IA não personalizados, as fases eram repetitivas ou aleatórias, muitas vezes era fácil encontrar padrões para vencer o jogo, e isso deixava eles sem graça. Hoje com a inteligência artificial, é mais fácil determinar o que seria um nível de um jogador por meio de agentes de reforço, fazendo com que as fases, níveis e configuraçẽos sejam mais adaptaveis e alcancem as habilidades de jogadores reais em diferentes níveis.</p>
+<p>Um método de IA eficiente para criar adaptabilidade em jogos é a aprendizagem por reforço. Podemos usá-la para replicar o comportamento de um grupo de usuários diante de um determinado cenário. Isso é muito útil em jogos de Corrida ou Luta por exemplo, onde o agente de IA tem a mesma posição do jogador real, permitindo que ele seja formado com o conhecimento de jogadores reais diferentes e ofereça uma concorrencia no nível adequado, sem ser muito difícil ou muito fácil, para um novo jogador real. Hoje, um sistema distribuído de treinamento pode ser usado para treinar oponentes em jogos online.</p>
+<p>Nessa aula, vamos aprender a criar um modelo de machine larning que joga uma versão customizada do classico pong. O jogo pode ser baixado do repositório <a href="https://github.com/andreclaudino/pong-ai-rust">pong-ai-rust</a>, ele não é o foco dessa aula, fica apenas a título de curiosidade, o que nos interessa na verdade é o conteúdo do repositório <a href="https://github.com/andreclaudino/pong-reinforcement-learning">pong-reinforcement-learning</a>, que cria um agente de IA que interage com o jogo implementado no repositório anterior. No momento certo, você terá instruções sobre como baixar e executar o código, vamos estudar detalhes dessa implementação.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Pac-Man é um série de jogos de videogame, feita pela Namco. O objetivo da maioria dos jogos da série é percorrer um labirinto, comendo pontos, pontos energizantes e frutas e fugindo de quatro fantasmas, chamados Blinky, Pinky, Inky e Clyde. Fonte: Wikipedia.</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>Space Invaders é um videogame japonês de tiro lançado em 1978 por Taito. Foi desenvolvido por Tomohiro Nishikado, que foi inspirado por outras mídias: Breakout, A Guerra dos Mundos e Guerra nas Estrelas. Fonte: Wikipedia</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next" href="abordagens-supervisionada-e-nao-supervisionada.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next" href="abordagens-supervisionada-e-nao-supervisionada.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="mermaid.min.js"></script>
+        <script type="text/javascript" src="mermaid-init.js"></script>
+
+
+    </body>
+</html>
